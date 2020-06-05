@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<table border="1">
+    <div>
+        <h3>字段</h3>
+        <ul>
+            <input type="checkbox" name="column"/>电子邮箱
+            <input type="checkbox" name="column"/>性别
+        </ul>
+    </div>
+    <div>
+        <h3>查询字段</h3>
+        <ul>
+            <input type="checkbox" name="selectColumn"/>性别
+            <input type="checkbox" name="selectColumn"/>年龄
+        </ul>
+    </div>
+    <div>
+        <button>查询</button><br/>
+    </div>
+    <thead>
+        <tr>
+            <th>编码</th>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="item,state :${users}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.age}"></td>
+        </tr>
+    </tbody>
+</table>
+<script th:src="@{/js/jquery-1.12.4.js}"></script>
+<script>
+    function deleteUser(){
+        if (confirm("您确定要删除吗？")) {
+            location.href="delete"
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function addUser(){
+        location.href="/loadAdd"
+    }
+    function updateUser(id){
+        location.href="loadUpdate?id="+id+""
+    }
+    $(function () {
+
+    })
+</script>
+</body>
+</html>

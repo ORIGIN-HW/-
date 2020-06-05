@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 命名空间：用来指定全限定名（包+类）路径 -->
+<mapper namespace="com.example.demo.mapping.UserMapper">
+	<select id="selectAll" resultType="com.example.demo.entity.user">
+		select * from user
+	</select>
+</mapper>
